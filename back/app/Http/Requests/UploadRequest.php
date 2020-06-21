@@ -14,14 +14,14 @@ class UploadRequest extends FormRequest
     public function rules()
     {
         return [
-            'files' => 'required'
+            'files' => 'required',
         ];
     }
 
     public function messages()
     {
         return [
-            'files.required' => 'É necessário anexar um arquivo.'
+            'files.required' => 'É necessário anexar um arquivo.',
         ];
     }
 }
