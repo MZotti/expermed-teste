@@ -10,31 +10,33 @@ import api from '../../../services/api';
 class Upload extends Component { 
 
 	state = { 
-  	selectedFile: []
+    selectedFile: [],
+    message: ''
 	}; 
 
 	onFileChange = event => { 
-    this.setState({ selectedFile: event.target.files[0] }); 
-    console.log(this.state);
+    this.setState({ selectedFile: event.target.files[0] });
   }; 
   
-	onFileUpload = () => { 
+	  onFileUpload = async () => { 
+
+    this.setState({ message: '' });
 
     const data = new FormData(); 
     
     data.append( 
       "files[]", 
-      this.state.selectedFile, 
-      this.state.selectedFile.name 
+      this.state.selectedFile
     ); 
   
     console.log(data); 
   
     try{
-      api.post('http://127.0.0.1:8000/api/upload', data);
-
+      const response = await api.post('http://127.0.0.1:8000/api/upload', data);
+      this.setState({ message: 'Arquivo enviado!' });
     }catch(err){
-      alert(err);
+      console.log(err);
+      this.setState({ message: 'Ocorreu um erro ao enviar o arquivo!' });
     }
 
   }; 
@@ -48,7 +50,8 @@ class Upload extends Component {
         <div> 
             <input type="file" onChange={this.onFileChange} multiple/> <br></br>
             <input type="submit" onClick={this.onFileUpload}/>
-          </div> 
+        </div> 
+        <span>{this.state.message}</span>
       </div>
     </div>
     ); 
