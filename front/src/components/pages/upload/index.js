@@ -33,7 +33,7 @@ class Upload extends Component {
   
     try{
       const response = await api.post('http://127.0.0.1:8000/api/upload', data);
-      this.setState({ message: 'Arquivo enviado!' });
+      this.setState({ message: 'Arquivo enviado! Foi gerado um relatório no destino: storage/app/public/data/out' });
     }catch(err){
       console.log(err);
       this.setState({ message: 'Ocorreu um erro ao enviar o arquivo!' });
