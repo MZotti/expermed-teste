@@ -1,0 +1,69 @@
+@import './components/_common/variables.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Verdana', sans-serif;
+  background: $mainBackground;
+  font-size: 14px;
+  color: $mainColor;
+}
+
+a{
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+li{
+  list-style: none;
+}
+
+input, textarea{
+  background: $inputBackground;
+  border: 1px solid $inputBackground;
+  border-radius: 2px;
+  padding: 0.2em 0.5em;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+form{
+  display: inline-grid;
+}
+
+form > input{
+  margin-bottom: 4px;
+}
+
+label{
+  font-weight: 600;
+}
+
+form > label{
+  margin-bottom: 6px;
+}
+
+button, input[type=submit]{
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background border-color 0.15s;
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+button, input[type=submit]:hover{
+  background: $inputSecondaryBackground;
+  border-color: $inputSecondaryBackground;
+}

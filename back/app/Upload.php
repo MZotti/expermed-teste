@@ -30,6 +30,7 @@ class Upload extends Model
                         $this->clients[$data[1]] = $this->MountClient($data);
                         break;
                     case 003:
+                        //echo $data[4];
                         $this->sells[$data[4]] = $this->MountSells($data);
                         break;
                     default:
@@ -157,7 +158,7 @@ class Upload extends Model
 
         $response = json_encode($response);
 
-        $fileName = uniqid(); 
+        $fileName = uniqid();
 
         Storage::put('public/data/out/'.$fileName.'.done.dat', $response);
     }

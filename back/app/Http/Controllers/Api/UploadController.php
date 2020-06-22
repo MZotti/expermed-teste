@@ -43,13 +43,14 @@ class UploadController extends Controller
                     $extension = $file->getClientOriginalExtension();
                     $filename = uniqid().'.'.$extension; 
                     $path = Storage::disk('local')->putFileAs('public/data/in', $file, $filename);
+                    
                 }
 
                 $this->upload->ReadFiles();
 
                 return response()->json([
                     'data' => [
-                        'msg' => 'Arquivos upados!'
+                        'msg' => 'Arquivo(s) upado(s)!'
                     ]
                 ], 200);
             }
